@@ -1,233 +1,206 @@
-📊 Customer Shopping Behavior Analysis
-A Complete Data Analytics & BI Project (Python + SQL + Power BI)
-📌 Project Overview
+# 📊 Customer Shopping Behavior Analysis  
+### A Complete Data Analytics & BI Project (Python + SQL + Power BI)
 
-This project analyzes 3,900 customer shopping transactions to uncover actionable insights about purchase behavior, product preferences, customer segments, and revenue patterns.
-The workflow integrates Python (EDA & Cleaning), PostgreSQL (Business Queries), and Power BI (Dashboard Development) to deliver a full end-to-end analytics solution.
+This project analyzes **3,900 customer shopping transactions** to uncover insights about purchase behavior, product preferences, customer segments, and revenue patterns.
 
-Power BI Dashboard Link: (add your shortened link here)
-PDF Report: Included in repository
+The workflow combines **Python (EDA & Cleaning)**, **PostgreSQL (Business Queries)**, and **Power BI (Dashboard Development)** to deliver a full end-to-end analytics solution.
 
-📁 Dataset Summary
+---
 
-Based on the project documentation 
+## 🔗 Project Links  
+- **Power BI Dashboard:** *(add your shortened link here)*  
+- **PDF Report:** Included in the repository  
 
-Customer Shopping Behavior Anal…
+---
 
-:
+## 📁 Dataset Summary  
 
-Rows: 3,900
+Based on the project documentation:
 
-Columns: 18
+- **Rows:** 3,900  
+- **Columns:** 18  
+- **Key features include:**  
+  - Customer demographics (Age, Gender, Location, Subscription Status)  
+  - Purchase details (Item, Category, Amount, Size, Color, Season)  
+  - Behavioral attributes (Discount Applied, Promo Code, Previous Purchases, Rating, Shipping Type)  
+- **Missing Values:**  
+  - 37 missing values in **Review Rating**  
 
-Key features include:
+---
 
-Customer demographics (Age, Gender, Location, Subscription Status)
+## 🧹 Data Preparation & Cleaning (Python)
 
-Purchase details (Item, Category, Amount, Size, Color, Season)
+Performed using **pandas**, **matplotlib**, and **seaborn**.
 
-Behavior features (Discount Applied, Promo Code, Previous Purchases, Frequency, Rating, Shipping Type)
+### ✔ Data Loading & Exploration  
+- Used `df.info()` and `df.describe()` for structure and summary.  
+- Identified missing values and inconsistent fields.
 
-Missing values:
+### ✔ Handling Missing Data  
+- Missing Review Ratings were imputed using **median rating per product category**.
 
-37 missing values in Review Rating column
+### ✔ Column Standardization  
+- All column names were converted to **snake_case** for consistency.
 
-🧹 Data Preparation & Cleaning (Python)
+### ✔ Feature Engineering  
+- `age_group` → created by binning age values  
+- `purchase_frequency_days` → derived using previous purchase timestamps  
 
-Performed in Python using pandas, matplotlib, and seaborn:
+### ✔ Data Consistency  
+- Verified overlap between **discount_applied** and **promo_code_used**.  
+- Dropped redundant **promo_code_used** column.
 
-✔ Data Loading & Exploration
+### ✔ Database Integration  
+- Cleaned dataset loaded into **PostgreSQL** for structured SQL analysis.
 
-Used df.info(), df.describe() to understand structure and distributions.
+---
 
-✔ Handling Missing Data
+## 🧾 Business Analysis Using SQL (PostgreSQL)
 
-Missing Review Rating values were imputed using median rating per product category.
+The PDF (pages 2–6) includes insights such as:
 
-✔ Column Standardization
+### 1️⃣ Revenue by Gender  
+Comparison of total spending by male vs female customers.
 
-Converted all column names to snake_case for clarity and consistency.
+### 2️⃣ High-Spending Discount Users  
+Customers who used discounts but still spent above-average amounts.
 
-✔ Feature Engineering
+### 3️⃣ Top 5 Products by Rating  
+Products like **Gloves**, **Sandals**, and **Boots** ranked highest (page 4).
 
-age_group → created by binning age values
+### 4️⃣ Shipping Type Comparison  
+**Express shipping** users spent more than standard shipping users (page 4).
 
-purchase_frequency_days → derived using previous purchase timestamps
+### 5️⃣ Subscribers vs Non-Subscribers  
+Insights into:  
+- Avg spend  
+- Total customers  
+- Revenue contribution (page 4)
 
-✔ Data Consistency & Redundancy
+### 6️⃣ Discount-Dependent Products  
+Ranked products by how often discounts were used.
 
-Verified overlap between discount_applied & promo_code_used; later dropped promo_code_used.
+### 7️⃣ Customer Segmentation  
+Based on purchase frequency:  
+- New  
+- Returning  
+- Loyal
 
-✔ Database Integration
+### 8️⃣ Top 3 Products Per Category  
+Clothing, Accessories, Footwear, etc. (page 6)
 
-Loaded cleaned dataset into PostgreSQL for structured business analysis.
+### 9️⃣ Repeat Buyers & Subscriptions  
+Correlation between **>5 purchases** and subscription likelihood.
 
-🧾 Business Analysis Using SQL (PostgreSQL)
-
-Key SQL insights extracted in the analysis (documented in PDF pages 2–6) 
-
-Customer Shopping Behavior Anal…
-
-:
-
-1️⃣ Revenue by Gender
-
-Compared total revenue from male vs female customers.
-
-2️⃣ High-Spending Discount Users
-
-Identified customers using discounts but still spending above average purchase value.
-
-3️⃣ Top 5 Products by Rating
-
-Products with highest average review rating (e.g., Gloves, Sandals, Boots — page 4).
-
-4️⃣ Shipping Type Comparison
-
-Express shipping users spend more on average than Standard shipping users (page 4).
-
-5️⃣ Subscribers vs Non-Subscribers
-
-Comparison of:
-
-Total customers
-
-Average spend
-
-Total revenue
-(Example: Subscribers generated significant revenue — page 4)
-
-6️⃣ Discount-Dependent Products
-
-Ranked products based on % of discounted purchases.
-
-7️⃣ Customer Segmentation
-
-Used purchase frequency to classify customers as:
-
-New
-
-Returning
-
-Loyal
-
-8️⃣ Top 3 Products per Category
-
-Displayed top-selling items under Clothing, Accessories, Footwear, etc. (page 6)
-
-9️⃣ Repeat Buyers & Subscriptions
-
-Analyzed correlation between >5 purchases and subscription likelihood.
-
-🔟 Revenue by Age Group
-
+### 🔟 Revenue by Age Group  
 Young Adults contributed the highest revenue (page 7).
 
-📊 Power BI Dashboard
+---
 
-An interactive Customer Behavior Dashboard was built to visualize insights (page 7):
-Features include:
+## 📊 Power BI Dashboard
 
-Total Customers
+The interactive dashboard (page 7) includes:
 
-Average Purchase Amount
+- Total Customers  
+- Average Purchase Amount  
+- Average Review Rating  
+- Revenue by Category  
+- Subscription Status Distribution  
+- Revenue by Age Group  
+- Sales by Category  
 
-Average Review Rating
+**Filters:** Gender, Category, Shipping Type, Subscription, Season  
 
-Revenue by Category
+This dashboard enables stakeholders to quickly interpret trends and identify growth opportunities.
 
-Subscription Status Distribution
+---
 
-Revenue by Age Group
+## 💡 Business Recommendations  
 
-Sales by Category
+Based on insights (page 8):
 
-Filters: Gender, Category, Shipping Type, Subscription, Season
+### 🔹 Boost Subscriptions  
+Offer exclusive deals and discounts.
 
-This dashboard allows stakeholders to quickly interpret trends and identify opportunities for growth.
+### 🔹 Strengthen Loyalty Programs  
+Reward Returning customers to convert them into Loyal ones.
 
-💡 Business Recommendations
+### 🔹 Optimize Discount Strategy  
+Balance discount usage with profit margins.
 
-Based on insights (summarized from page 8) 
+### 🔹 Improve Product Positioning  
+Promote top-rated and best-selling items.
 
-Customer Shopping Behavior Anal…
+### 🔹 Targeted Marketing  
+Focus on:  
+- High-revenue age groups  
+- Express-shipping customers  
+- Popular categories  
 
-:
+---
 
-🔹 Boost Subscriptions
+## 🛠 Tech Stack
 
-Offer benefits and exclusive deals to increase conversions.
+- **Python** → EDA, cleaning, feature engineering  
+- **PostgreSQL** → Business logic & SQL analysis  
+- **Power BI** → Visualization & Dashboard  
+- **Pandas, NumPy** → Data manipulation  
+- **Matplotlib, Seaborn** → Charts & exploration  
 
-🔹 Strengthen Customer Loyalty Programs
+---
 
-Reward repeat buyers to move them from Returning to Loyal.
+## 📂 Recommended Folder Structure
 
-🔹 Optimize Discount Strategy
-
-Balance sales growth with margin preservation.
-
-🔹 Improve Product Positioning
-
-Promote top-rated and best-selling products to enhance sales.
-
-🔹 Targeted Marketing
-
-Focus on:
-
-High-revenue age groups
-
-Express-shipping customers
-
-Popular product categories
-
-🛠 Tech Stack
-
-Python → Data cleaning, EDA, feature engineering
-
-PostgreSQL → Business logic & SQL analytics
-
-Power BI → Dashboard & Interactive visualization
-
-Pandas, NumPy → Data manipulation
-
-Matplotlib/Seaborn → Exploratory charts
-
-📂 Folder Structure (Recommended)
 /Customer-Shopping-Behavior-Analysis
 │
 ├── data/
-│   └── customer_data.csv
+│ └── customer_data.csv
 │
 ├── notebooks/
-│   └── eda_and_cleaning.ipynb
+│ └── eda_and_cleaning.ipynb
 │
 ├── sql/
-│   └── business_queries.sql
+│ └── business_queries.sql
 │
 ├── dashboard/
-│   └── Customer Behavior Dashboard.pbix
+│ └── Customer Behavior Dashboard.pbix
 │
 ├── reports/
-│   └── Customer Shopping Behavior Analysis.pdf
+│ └── Customer Shopping Behavior Analysis.pdf
 │
 └── README.md
 
-🚀 How to Run the Project
-1. Clone the repository
+
+---
+
+## 🚀 How to Run the Project
+
+### 1. Clone the repository  
 git clone https://github.com/yourusername/CustomerShoppingAnalysis.git
 cd CustomerShoppingAnalysis
 
-2. Install required Python libraries
+shell
+Copy code
+
+### 2. Install required Python libraries  
 pip install -r requirements.txt
 
-3. Run the Python notebook
+yaml
+Copy code
 
-Clean and preprocess data using the Jupyter Notebook in /notebooks.
+### 3. Run the Python notebook  
+Open the Jupyter Notebook in `/notebooks` to clean and preprocess the data.
 
-4. Import data into PostgreSQL
+### 4. Import cleaned data into PostgreSQL  
+Execute the SQL queries provided in `/sql`.
 
-Use SQL scripts in /sql.
+### 5. Open the Power BI dashboard  
+Load the `.pbix` file from `/dashboard` and refresh connections.
 
-5. Open the Power BI dashboard
+---
 
-Load the .pbix file from /dashboard and refresh data sources.
+## 🎉 Final Notes  
+This project showcases complete analytics lifecycle skills:  
+**Data Cleaning → EDA → SQL Insights → BI Dashboard → Business Recommendations.**
+
+Feel free to explore, modify, or extend the analysis!

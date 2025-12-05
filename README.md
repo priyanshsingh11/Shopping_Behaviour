@@ -8,7 +8,7 @@ The workflow combines **Python (EDA & Cleaning)**, **PostgreSQL (Business Querie
 ---
 
 ## 🔗 Project Links  
-- **Power BI Dashboard:** *(add your shortened link here)*  
+- **Power BI Dashboard:** https://app.powerbi.com/groups/53a5befb-1a9b-4280-a68d-314129fa1ccc/reports/a3fc865d-37c6-4a9e-9194-35a15903f1a5?ctid=cb1013ae-fb33-4405-8464-8d4ebfd3679d&pbi_source=linkShare  
 - **PDF Report:** Included in the repository  
 
 ---
